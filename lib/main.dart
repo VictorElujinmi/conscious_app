@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Sensor.dart';
+import 'home_page.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -85,6 +85,8 @@ class _State extends State<MyApp> {
                       onPressed: () {
                         print(nameController.text);
                         print(passwordController.text);
+                        Navigator.push(context,MaterialPageRoute(builder: (context)=> HomePage()));
+
 
 
 
