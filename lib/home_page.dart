@@ -18,11 +18,8 @@ class _HomePageState extends State<HomePage> {
           onPressed: () {
             //ajhsdfjkasd
           }
-
         )
-
         ]
-
       ),
       body: Center(
         child: Text('Home Page Flutter Firebase  Content'),

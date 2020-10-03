@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
-
+import 'Sensor.dart';
 void main() {
   runApp(MaterialApp(
     home: MyApp(),
   ));
 }
-
-
-
 class MyApp extends StatefulWidget {
   @override
   _State createState() => _State();
@@ -83,14 +79,10 @@ class _State extends State<MyApp> {
                       color: Colors.blue,
                       child: Text('Sign in'),
                       onPressed: () {
-                        print(nameController.text);
-                        print(passwordController.text);
-                        Navigator.push(context,MaterialPageRoute(builder: (context)=> HomePage()));
-
-
-
-
-                      },
+                        // print(nameController.text);
+                        // print(passwordController.text);
+                        Navigator.push(context,MaterialPageRoute(builder: (context)=> Sensor()));
+                        },
                     )),
                 Container(
                     child: Row(
