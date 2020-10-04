@@ -50,19 +50,41 @@ class _LocationState extends State<Location> {
           padding: EdgeInsets.all(10),
             child: Column (
               children: <Widget>[
-                TextField(),
-                Location(),
+                Text('Places Ive been to', textAlign: TextAlign.left,),
+                _LocationList(),
+            Container(
+                padding: new EdgeInsets.all(20.0),
+              height: 60,
+                width: MediaQuery.of(context).size.width,
+                child: new Text (
+                    "Covid-19 Dashboard",
+                    textAlign: TextAlign.left,
+                    style: new TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w900
+                    )
+                ),
+                decoration: new BoxDecoration (
+                    color: Colors.blue
+                )
+            ),
+                Row(
+
+                )
+
               ]
+
                 )
     )
       );
-
-
     }
 
 
   Widget _LocationList() {
     return ListView.builder(
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
         padding: EdgeInsets.all(16.0),
         itemCount: 4 * 2,
         itemBuilder: /*1*/ (context, i) {
@@ -80,11 +102,24 @@ class _LocationState extends State<Location> {
 
   Widget _buildRow(String location) {
     return ListTile(
-      title: Text(
+
+      leading: Column (
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+            Icon(
+              Icons.mood_rounded ,
+              color: Colors.green,
+            ),
+      Text('Safe'),
+        ],
+      ),
+
+        title: Text(
         location,
         style: _biggerFont,
-      ),
-    );
+    ));
+
+
   }
 
 }
