@@ -51,7 +51,12 @@ class _LocationState extends State<Location> {
             child: Column (
               children: <Widget>[
                 Text('Places Ive been to', textAlign: TextAlign.left,),
-                _LocationList(),
+
+                Container(
+                  height: 200,
+                  child:_LocationList(),
+                )
+                ,
             Container(
                 padding: new EdgeInsets.all(20.0),
               height: 60,
@@ -70,7 +75,15 @@ class _LocationState extends State<Location> {
                 )
             ),
                 Row(
+                  children: <Widget>[
+                   Padding(
+                     padding: EdgeInsets.all(25.0),
+                     child:  blockInfo("94", "Students"),
+                   )
+                    ,
+                    blockInfo("20", "Infected"),
 
+                  ],
                 )
 
               ]
@@ -81,12 +94,40 @@ class _LocationState extends State<Location> {
     }
 
 
+    Widget blockInfo(String number, String text) {
+      return (
+      Column (
+        children: <Widget>[
+
+         Text(text)
+          ,Container(
+              padding: new EdgeInsets.all(20.0),
+              height: 60,
+              width: (MediaQuery.of(context).size.width/2) - 50,
+              child: new Text (
+                  number,
+                  textAlign: TextAlign.center,
+                  style: new TextStyle(
+                      color: Colors.black,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w900
+                  )
+              ),
+              decoration: new BoxDecoration (
+                  color: Colors.grey[350]
+              )
+          )
+      ])
+      );
+    }
+
+
   Widget _LocationList() {
     return ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         padding: EdgeInsets.all(16.0),
-        itemCount: 4 * 2,
+        itemCount: 2 * 2,
         itemBuilder: /*1*/ (context, i) {
 
           if (i.isOdd) return Divider(); /*2*/
@@ -95,9 +136,16 @@ class _LocationState extends State<Location> {
 
           _suggestions.addAll(['Bobba Theory', 'Walmart', 'Panama Beach', 'Trader Joes']);
           /*4*/
+
+
+
           return _buildRow(_suggestions[index]);
 
-        });
+        }
+
+
+
+        );
   }
 
   Widget _buildRow(String location) {
