@@ -1,5 +1,5 @@
-name: conscious_app
-description: An App that allows users to be aware of their surroundings.
+name: todolist
+description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -21,11 +21,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  charts_flutter: ^0.9.0
   flutter:
     sdk: flutter
-
-
 
 
   # The following adds the Cupertino Icons font to your application.

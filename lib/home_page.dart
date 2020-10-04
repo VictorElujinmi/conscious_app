@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'SimpleTimeSeriesChart.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -53,7 +54,7 @@ class _LocationState extends State<Location> {
                 Text('Places Ive been to', textAlign: TextAlign.left,),
 
                 Container(
-                  height: 200,
+                  height: 215,
                   child:_LocationList(),
                 )
                 ,
@@ -84,7 +85,8 @@ class _LocationState extends State<Location> {
                     blockInfo("20", "Infected"),
 
                   ],
-                )
+                ),
+                Expanded(flex: 5, child: SimpleTimeSeriesChart.withSampleData()),
 
               ]
 
@@ -127,7 +129,7 @@ class _LocationState extends State<Location> {
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         padding: EdgeInsets.all(16.0),
-        itemCount: 2 * 2,
+        itemCount: 4 * 2,
         itemBuilder: /*1*/ (context, i) {
 
           if (i.isOdd) return Divider(); /*2*/
@@ -171,3 +173,4 @@ class _LocationState extends State<Location> {
   }
 
 }
+
