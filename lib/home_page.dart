@@ -7,6 +7,35 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 1: Testing',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: Map',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+
+
+
+      //Nav Code here
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -30,7 +59,27 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Location(),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.medical_services),
+            label: 'Testing',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.location_on_rounded ),
+            label: 'Map',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
+        onTap: _onItemTapped,
+      ),
     );
+
   }
 }
 class Location extends StatefulWidget{
@@ -86,7 +135,11 @@ class _LocationState extends State<Location> {
 
                   ],
                 ),
-                Expanded(flex: 5, child: SimpleTimeSeriesChart.withSampleData()),
+                Expanded(
+                     child: Padding(
+                       padding: EdgeInsets.only(top:50.0),
+                     child:SimpleTimeSeriesChart.withSampleData()))
+                ,
 
               ]
 
@@ -103,8 +156,8 @@ class _LocationState extends State<Location> {
 
          Text(text)
           ,Container(
-              padding: new EdgeInsets.all(20.0),
-              height: 60,
+              padding: new EdgeInsets.all(15.0),
+              height: 55,
               width: (MediaQuery.of(context).size.width/2) - 50,
               child: new Text (
                   number,
